@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const API = axios.create({ baseURL: 'https://splitmate-8k0b.onrender.com' });
+const API = axios.create({ baseURL: 'https://splitmate-1.onrender.com/' });
 
 
 const profile = JSON.parse(localStorage.getItem('profile'))
