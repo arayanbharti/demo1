@@ -6,7 +6,7 @@ export default function Copyright() {
 
   return (
     <Typography mt="-2" variant="body2" align="center" sx={{ color: 'text.secondary'}}>
-            &copy;DATA ENGINEERING ||CS8 &nbsp; 
+            &copy;Aryan bharti&nbsp; 
             
            
           </Typography>

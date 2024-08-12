@@ -23,11 +23,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/users/v1/register",
+							"raw": "https://splitmate-8k0b.onrender.com/users/v1/register",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"users",
 								"v1",
@@ -52,11 +52,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/users/v1/login",
+							"raw": "https://splitmate-8k0b.onrender.com/users/v1/login",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"users",
 								"v1",
@@ -87,11 +87,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/users/v1/view",
+							"raw": "https://splitmate-8k0b.onrender.com/users/v1/view",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"users",
 								"v1",
@@ -122,11 +122,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/users/v1/view",
+							"raw": "https://splitmate-8k0b.onrender.com/users/v1/view",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"users",
 								"v1",
@@ -151,11 +151,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/users/v1/edit",
+							"raw": "https://splitmate-8k0b.onrender.com/users/v1/edit",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"users",
 								"v1",
@@ -180,11 +180,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/users/v1/updatePassword",
+							"raw": "https://splitmate-8k0b.onrender.com/users/v1/updatePassword",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"users",
 								"v1",
@@ -215,11 +215,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/users/v1/delete",
+							"raw": "https://splitmate-8k0b.onrender.com/users/v1/delete",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"users",
 								"v1",
@@ -255,11 +255,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/group/v1/add",
+							"raw": "https://splitmate-8k0b.onrender.com/group/v1/add",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"group",
 								"v1",
@@ -284,11 +284,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/group/v1/view",
+							"raw": "https://splitmate-8k0b.onrender.com/group/v1/view",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"group",
 								"v1",
@@ -313,11 +313,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/group/v1/user",
+							"raw": "https://splitmate-8k0b.onrender.com/group/v1/user",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"group",
 								"v1",
@@ -348,11 +348,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/group/v1/edit",
+							"raw": "https://splitmate-8k0b.onrender.com/group/v1/edit",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"group",
 								"v1",
@@ -388,11 +388,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/add",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/add",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -417,11 +417,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/edit",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/edit",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -446,11 +446,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/view",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/view",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -481,11 +481,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/group/categoryExp",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/group/categoryExp",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -517,11 +517,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/group/monthlyExp",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/group/monthlyExp",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -553,11 +553,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/group",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/group",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -588,11 +588,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/user",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/user",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -623,11 +623,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/user/monthlyExp",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/user/monthlyExp",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -659,11 +659,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/user/categoryExp",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/user/categoryExp",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -689,11 +689,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/user",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/user",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
@@ -718,11 +718,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/expense/v1/delete",
+							"raw": "https://splitmate-8k0b.onrender.com/expense/v1/delete",
 							"host": [
-								"localhost"
+								"splitmate-8k0b.onrender.com"
 							],
-							"port": "3001",
+							
 							"path": [
 								"expense",
 								"v1",
