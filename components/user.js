@@ -4,37 +4,29 @@ const validator = require('../helper/validation')
 const logger = require('../helper/logger')
 const apiAuth = require('../helper/apiAuthentication')
 
-/*
-User Registeration function
-Accepts: firstName, lastName, emailId, password 
-Validation: firstname, lastname not Null 
-            emailID - contain '@' and '.com' 
-            password - min 8, lowecase, uppercase, special character, numbers
-API: /users/v1/register
-*/
+
 exports.userReg = async (req, res) => {
     try {
-        //Checking email Id exist in DB
+        
         const user = await model.User.findOne({
             emailId: req.body.emailId
         })
-        //If email ID present in database thows error and retuen message
+        
         if (user) {
             const err = new Error("Email Id already present please login!")
             err.status = 400
             throw err
         } else {
-            //Accepts the inputs and create user model form req.body
+            
             var newUser = new model.User(req.body)
-            //Performing validations
+            
             if (validator.emailValidation(newUser.emailId) &&
                 validator.passwordValidation(newUser.password) &&
                 validator.notNull(newUser.firstName)) {
-                //Bcrypt password encription
+                
                 const salt = await bcrypt.genSalt(10);
                 newUser.password = await bcrypt.hash(newUser.password, salt)
 
-                //storing user details in DB
                 var id = await model.User.create(newUser)
                 res.status(200).json({
                     status: "Success",
@@ -51,14 +43,9 @@ exports.userReg = async (req, res) => {
     }
 }
 
-/*
-User login function
-Accepts: email Id & Pass
-Implement Google Sign-in in the future.
-*/
 exports.userLogin = async (req, res) => {
     try {
-        //Checking email Id exist in DB 
+    
         const user = await model.User.findOne({
             emailId: req.body.emailId
         })
@@ -68,7 +55,6 @@ exports.userLogin = async (req, res) => {
             throw err
         }
 
-        //validating password using bcrypt
         const validCred = await bcrypt.compare(req.body.password, user.password)
         if (!validCred) {
             var err = new Error("Invalid email Id or Password* !")
@@ -94,15 +80,10 @@ exports.userLogin = async (req, res) => {
     }
 }
 
-/*
-View User function 
-This function is to view the user details 
-Accepts: user email Id 
-Returns: user details (ensure password is removed)
-*/
+
 exports.viewUser = async (req, res) => {
     try {
-        //check if the login user is same as the requested user 
+         
         apiAuth.validateUser(req.user, req.body.emailId) 
         const user = await model.User.findOne({
             emailId: req.body.emailId
@@ -127,15 +108,10 @@ exports.viewUser = async (req, res) => {
 }
 
 
-/*
-View All User EmailIs function 
-This function is to get all the user email Id 
-Accepts: none
-Returns: all user Email ID
-*/
+
 exports.emailList = async (req, res) => {
     try {
-        //check if the login user is same as the requested user 
+        
         const userEmails = await model.User.find({
         }, {
             emailId: 1,
@@ -163,11 +139,7 @@ exports.emailList = async (req, res) => {
 }
 
 
-/*
-Delete User function 
-This function is used to delete an existing user in the database 
-Accepts: user email id 
-*/
+
 exports.deleteUser = async (req, res) => {
     try {
         //check if the login user is same as the requested user 
@@ -194,15 +166,8 @@ exports.deleteUser = async (req, res) => {
     }
 }
 
-/*
-Edit User function 
-This function is used to edit the user present in the database 
-Accepts: User data (user email id can not be changed)
-This function can not be used to change the password of the user 
-*/
 exports.editUser = async (req, res) => {
     try {
-        //check if the login user is same as the requested user 
         apiAuth.validateUser(req.user, req.body.emailId)
         const userCheck = await validator.userValidation(req.body.emailId)
         if (!userCheck) {
@@ -238,15 +203,7 @@ exports.editUser = async (req, res) => {
     }
 }
 
-/*
-Update Password function 
-This function is used to update the user password 
-Accepts : emailId 
-          new password 
-          old password 
-validation : old password is correct 
-             new password meet the requirements 
-*/
+
 exports.updatePassword = async (req, res) => {
     try {
         //check if the login user is same as the requested user 

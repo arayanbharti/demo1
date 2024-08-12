@@ -3,17 +3,6 @@ const validator = require('../helper/validation');
 const logger = require('../helper/logger');
 const gorupDAO = require('./group')
 
-/*
-Add Expense function
-This function is used to add expense to the group 
-Accepts: Group ID not null group ID exist in the DB
-         Expense Name - Not Null
-         Expense Desc - max 100 limit
-         Expense Amount not null
-         Expense Owner - not null --member in the Group Expense Members not null members in the Group
-         Auto-Generate Expense ID - Auto generated and stored in the database
-*/
-
 exports.addExpense = async (req, res) => {
     try {
         var expense = req.body;
@@ -49,7 +38,7 @@ exports.addExpense = async (req, res) => {
             var newExp = new model.Expense(expense)
             var newExpense = await model.Expense.create(newExp)
 
-            //New expense is created now we need to update the split values present in the group 
+             
             var update_response = await gorupDAO.addSplit(expense.groupId, expense.expenseAmount, expense.expenseOwner, expense.expenseMembers)
 
             res.status(200).json({
@@ -67,16 +56,7 @@ exports.addExpense = async (req, res) => {
     }
 }
 
-/*
-Edit Expense function
-This function is used to edit the previously added expense to the group
-Accepts: Group ID not null group ID exist in the DB 
-         Expense ID not null expense ID exist in the DB for the perticular group
-         Expense Name Not Null
-         Expense Desc max 100 limit Expense Amount not null
-         Expense Owner - not null --member in the DB
-         Expense Members not null members in the DB
-*/
+
 exports.editExpense = async (req, res) => {
     try {
         var expense = req.body
@@ -128,7 +108,6 @@ exports.editExpense = async (req, res) => {
                 }
             })
 
-            //Updating the group split values
             await gorupDAO.clearSplit(oldExpense.groupId, oldExpense.expenseAmount, oldExpense.expenseOwner, oldExpense.expenseMembers)
             await gorupDAO.addSplit(expense.groupId, expense.expenseAmount, expense.expenseOwner, expense.expenseMembers)
 
@@ -146,12 +125,7 @@ exports.editExpense = async (req, res) => {
     }
 }
 
-/*
-Delete Expense function
-This function is used to deted the expense added to the group
-Accepts: Group ID not null group ID exist in the DB 
-         Expense ID not null expense ID exist in the DB for the perticular group
-*/
+
 exports.deleteExpense = async (req, res) => {
     try {
         var expense = await model.Expense.findOne({
@@ -166,7 +140,6 @@ exports.deleteExpense = async (req, res) => {
             _id: req.body.id
         })
 
-        //Clearing split value for the deleted expense from group table
         await gorupDAO.clearSplit(expense.groupId, expense.expenseAmount, expense.expenseOwner, expense.expenseMembers)
 
         res.status(200).json({
@@ -181,14 +154,6 @@ exports.deleteExpense = async (req, res) => {
         })
     }
 }
-
-
-/*
-View Individual Expense
-This function is used to view individual expenses based on the expense ID 
-Accepts: Expense Id
-Returns: Json with the expense details
-*/
 
 exports.viewExpense = async (req, res) => {
     try {
@@ -212,12 +177,6 @@ exports.viewExpense = async (req, res) => {
     }
 }
 
-/*
-View Group Expense function
-This function is used to view all the group expense
-Accepts: Group Id
-Returns: Json with all the expense record and the total expense amount for the group
-*/
 exports.viewGroupExpense = async (req, res) => {
     try {
         var groupExpense = await model.Expense.find({
@@ -248,12 +207,7 @@ exports.viewGroupExpense = async (req, res) => {
 }
 
 
-/*
-User Expense function
-This function is used to find all the expense a user is involved in
-Accepts user email Id
-returns: Expenses
-*/
+
 exports.viewUserExpense = async (req, res) => {
     try {
         validator.notNull(req.body.user)
@@ -285,12 +239,6 @@ exports.viewUserExpense = async (req, res) => {
     }
 }
 
-/*
-Recent User Expenses function
-This function is used to return the latest 5 expenses a user is involved in 
-Accepts : user email id - check in db if user is present 
-Returns : top 5 most resent expense user is a expenseMember in all the groups  
-*/
 exports.recentUserExpenses = async (req, res) => {
     try {
         var recentExpense = await model.Expense.find({
@@ -316,12 +264,7 @@ exports.recentUserExpenses = async (req, res) => {
 }
 
 
-/*
-Category wise group expense calculator function 
-This function is used to retuen the expense spend on each category in a group 
-Accepts : groupID 
-Returns : Each category total exp (group as whole)
-*/
+
 exports.groupCategoryExpense = async (req, res) => {
     try {
         var categoryExpense = await model.Expense.aggregate([{
@@ -351,13 +294,6 @@ exports.groupCategoryExpense = async (req, res) => {
     }
 }
 
-
-/*
-Group Monthly Expense Function 
-This function is used to get the monthly amount spend in a group 
-Accepts : group Id 
-Returns : Expense per month (current year)
-*/
 exports.groupMonthlyExpense = async (req, res) => {
     try {
         var monthlyExpense = await model.Expense.aggregate([{
@@ -396,12 +332,7 @@ exports.groupMonthlyExpense = async (req, res) => {
 
 
 new Date(new Date().setMonth(new Date().getMonth() - 5))
-/*
-Group Daily Expense Function 
-This function is used to get the dailyly amount spend in a group 
-Accepts : group Id 
-Returns : Expense per day (current year)
-*/
+
 exports.groupDailyExpense = async (req, res) => {
     try {
         var dailyExpense = await model.Expense.aggregate([{
@@ -443,15 +374,6 @@ exports.groupDailyExpense = async (req, res) => {
     }
 }
 
-
-
-
-/*
-Category wise user expense calculator function 
-This function is used to retuen the expense spend on each category for a user
-Accepts : emailID
-Returns : Each category total exp (individaul Expense)
-*/
 exports.userCategoryExpense = async (req, res) => {
     try {
         var categoryExpense = await model.Expense.aggregate([{
@@ -481,13 +403,6 @@ exports.userCategoryExpense = async (req, res) => {
     }
 }
 
-
-/*
-User Monthly Expense Function 
-This function is used to get the monthly amount spend by a user
-Accepts : Email Id 
-Returns : Expense per month
-*/
 exports.userMonthlyExpense = async (req, res) => {
     try {
         var monthlyExpense = await model.Expense.aggregate([{
@@ -524,13 +439,6 @@ exports.userMonthlyExpense = async (req, res) => {
     }
 }
 
-
-/*
-User Daily Expense Function 
-This function is used to get the daily amount spend by a user
-Accepts : Email Id 
-Returns : Expense per month
-*/
 exports.userDailyExpense = async (req, res) => {
     try {
         var dailyExpense = await model.Expense.aggregate([{
