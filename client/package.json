@@ -58,7 +58,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "https://splitmate-8k0b.onrender.com/users/v1/register"
   
 
 }
