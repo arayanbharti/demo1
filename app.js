@@ -39,6 +39,15 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
 }
 
 // Handle invalid API routes
+app.all('/api/*', (req, res) => {
+    logger.error(`[Invalid API Route] ${req.originalUrl}`);
+    res.status(404).json({
+        status: 'fail',
+        message: 'Invalid API path'
+    });
+});
+
+// Handle invalid client-side routes
 app.all('*', (req, res) => {
     logger.error(`[Invalid Route] ${req.originalUrl}`);
     res.status(404).json({
