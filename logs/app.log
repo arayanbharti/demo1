@@ -220,3 +220,5 @@
 2024-08-12T06:13:44.381Z | INFO   | API HIT : [POST] /api/expense/v1/user/dailyExp
 2024-08-12T06:13:44.384Z | ERROR  | URL : /api/expense/v1/user/recent | staus : 400 | message: No expense present for the user
 2024-08-12T06:13:46.038Z | INFO   | API HIT : [POST] /api/expense/v1/user/dailyExp
+2024-08-12T08:23:38.249Z | INFO   | Server started on PORT 3001
+2024-08-12T08:23:40.242Z | INFO   | DB Connection Established
