@@ -222,3 +222,5 @@
 2024-08-12T06:13:46.038Z | INFO   | API HIT : [POST] /api/expense/v1/user/dailyExp
 2024-08-12T08:23:38.249Z | INFO   | Server started on PORT 3001
 2024-08-12T08:23:40.242Z | INFO   | DB Connection Established
+2024-08-12T09:48:05.110Z | INFO   | Server started on PORT | 3001
+2024-08-12T09:48:07.585Z | INFO   | DB Connection Established
